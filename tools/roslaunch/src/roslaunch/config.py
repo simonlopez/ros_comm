@@ -413,6 +413,7 @@ def load_config_default(roslaunch_files, port, roslaunch_strs=None, loader=None,
     config = ROSLaunchConfig()
     if port:
         config.master.uri = rosgraph.network.create_local_xmlrpc_uri(port)
+        config.port = port
 
     loader = loader or roslaunch.xmlloader.XmlLoader()
 
