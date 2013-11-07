@@ -224,6 +224,8 @@ class XmlRpcNode(object):
         try:
             log_requests = 0
             port = self.port or 0 #0 = any
+            if not port and not self.port and self.rosconfig and self.rosconfig.port:
+                port = self.rosconfig.port
 
             bind_address = rosgraph.network.get_bind_address()
             logger.info("XML-RPC server binding to %s:%d" % (bind_address, port))
